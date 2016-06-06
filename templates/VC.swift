@@ -1,24 +1,27 @@
 $HEADER$
 import UIKit
 
-class $CLASS$: UIViewController, StoryboardNameProtocol {
+class $CLASS$: UIViewController, StoryboardInstantiable {
 
     static var storyboardName: StoryboardType {
         return .$STORYBOARD$
     }
 
-    @IBOutlet weak private var sampleButton: UIButton!
+    @IBOutlet weak var sampleButton: UIButton!
 
+    var uiConfigurationClosure: VoidClosure?
     var sampleClosure: VoidClosure?
 
-    // MARK: VC Methods
+    // MARK: - VC Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         customizeAppearance()
+        fireAnalytics()
 
         guard
+            let _ = uiConfigurationClosure,
             let _ = sampleClosure
         else {
             assertionFailure()
@@ -26,13 +29,19 @@ class $CLASS$: UIViewController, StoryboardNameProtocol {
         }
     }
 
-    // MARK: Appearance
+    // MARK: - Appearance
 
     private func customizeAppearance() {
-        // TODO: implementation
+        uiConfigurationClosure?()
     }
 
-    // MARK: Actions
+    // MARK: - Analytics
+
+    private func fireAnalytics() {
+        GoogleAnalyticsHelper.sharedInstance.trackScreen(self)
+    }
+
+    // MARK: - Actions
 
     @IBAction func didTapSampleButton(sender: AnyObject) {
         sampleClosure?()

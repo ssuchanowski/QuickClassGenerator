@@ -6,12 +6,19 @@ struct $CLASS$Configurator: VCConfiguratorProtocol {
     let flowManager: FlowManager
 
     func configure(viewController: $CLASS$) {
-        viewController.sampleClosure = sampledAction(viewController)
+        viewController.uiConfigurationClosure = uiConfigurationAction(viewController)
+        viewController.sampleClosure = sampleAction(viewController)
 
         viewController.addNavBarLogo()
     }
 
     // MARK: Actions
+
+    private func uiConfigurationAction(presenter: WelcomeVC) -> VoidClosure {
+        return {
+            // TODO: implementation
+        }
+    }
 
     private func sampleAction(presenter: $CLASS$) -> VoidClosure {
         return {
