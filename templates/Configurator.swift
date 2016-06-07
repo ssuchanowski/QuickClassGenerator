@@ -14,7 +14,7 @@ struct $CLASS$Configurator: VCConfiguratorProtocol {
 
     // MARK: Actions
 
-    private func uiConfigurationAction(presenter: WelcomeVC) -> VoidClosure {
+    private func uiConfigurationAction(presenter: $CLASS$) -> VoidClosure {
         return {
             // TODO: implementation
         }
