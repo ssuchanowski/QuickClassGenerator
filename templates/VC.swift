@@ -1,16 +1,14 @@
 $HEADER$
 import UIKit
 
-class $CLASS$: UIViewController, StoryboardInstantiable {
+class $CLASS$: UIViewController, SNPStoryboardInstantiable {
 
-    static var storyboardName: StoryboardType {
-        return .$STORYBOARD$
-    }
+    static var storyboardName = SNPStoryboardType.$STORYBOARD$
 
     @IBOutlet weak var sampleButton: UIButton!
 
-    var uiConfigurationClosure: VoidClosure?
-    var sampleClosure: VoidClosure?
+    var uiConfigurationClosure: SNPClosureVoid?
+    var sampleClosure: SNPClosureVoid?
 
     // MARK: - VC Methods
 
