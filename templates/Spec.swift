@@ -1,18 +1,18 @@
 $HEADER$
-import Foundation
 import Quick
 import Nimble
 
-@testable import $CLASS$
+@testable import <#ProjectName#>
 
 class $CLASS$Spec: QuickSpec {
     override func spec() {
-        describe(\"$CLASS$") {
+        describe("$CLASS$") {
 
-            var sut: $CLASS$
+            var sut: $CLASS$!
 
             beforeEach {
-                sut = $CLASS$()
+                sut = $CLASS$.fromStoryboard($CLASS$.storyboardName)
+                expect(sut.view).notTo(beNil())
             }
 
             afterEach {
